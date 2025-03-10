@@ -1,6 +1,3 @@
-<p align="center"><img width="400px" alt="Via Protocol is the most advanced cross-chain aggregation protocol" src="https://user-images.githubusercontent.com/20267733/218333677-ebdb09e5-9487-434c-92f5-f4bdcc76f632.png" width="100%">
-</p>
-
 # **AI-Commit: The Commit Message Generator**
 
 This repo was forked from https://github.com/insulineru/ai-commit and simplified/modified to meet my personal requirements.
@@ -45,5 +42,3 @@ You can also use the local model for free with Ollama.
 
 ## License
 AI-Commit is licensed under the MIT License.
-
-## Happy coding 🚀
