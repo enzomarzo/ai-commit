@@ -3,6 +3,8 @@
 
 # **AI-Commit: The Commit Message Generator**
 
+This repo was forked from https://github.com/insulineru/ai-commit and simplified/modified to meet my personal requirements.
+
 This package uses the power of OpenAI's GPT-3.5-turbo model to understand your code changes and generate meaningful commit messages for you. Whether you're working on a solo project or collaborating with a team, AI-Commit makes it easy to keep your commit history organized and informative.
 
 
@@ -27,6 +29,7 @@ You can also use the local model for free with Ollama.
 2. Type `ai-commit` in your terminal
 3. AI-Commit will analyze your changes and generate a commit message
 4. Approve the commit message and AI-Commit will create the commit for you ✅
+
 
 ## Options
 `--list`: Select from a list of 5 generated messages (or regenerate the list)
