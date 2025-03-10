@@ -1,10 +1,10 @@
 import * as dotenv from "dotenv";
-import { getArgs } from "./helpers.js";
+import { Args, getArgs } from "./helpers.js";
 import { Model, Provider } from "./types.js";
 
 dotenv.config();
 
-export const args = getArgs();
+export const args: Args = getArgs();
 
 export const AI_PROVIDER: Provider = (args.PROVIDER as Provider) || (process.env.PROVIDER as Provider) || "openai";
 

@@ -1,8 +1,13 @@
 import { ChatGPTAPI } from "chatgpt";
 import { getCommitPrompt } from "./prompt.js";
+import { Args } from "./helpers.js";
+
+interface SendMessageOptions {
+  apiKey: string;
+}
 
 const openai = {
-  sendMessage: async (input, { apiKey }) => {
+  sendMessage: async (input: string, { apiKey }: SendMessageOptions): Promise<string> => {
     console.log("prompting chat gpt...");
 
     const api = new ChatGPTAPI({
@@ -17,22 +22,21 @@ const openai = {
     return text;
   },
 
-  getPromptForSingleCommit: (diff, { commitType, language }) => {
+  getPromptForSingleCommit: (diff: string, { commitType, language }: Args): string => {
     return getCommitPrompt(diff, {
       commitType,
-      numOptions: undefined, // No multiple options for a single commit
+      numOptions: false, // No multiple options for a single commit
       language,
     });
   },
 
-  getPromptForMultipleCommits: (diff, { commitType, numOptions, language }) => {
+  getPromptForMultipleCommits: (diff: string, { commitType, numOptions, language }: Args): string => {
     return getCommitPrompt(diff, {
       commitType,
       numOptions,
       language,
     });
   },
-
 };
 
 export default openai;

@@ -12,7 +12,7 @@ const REGENERATE_MSG = "♻️ Regenerate Commit Messages";
 
 console.log("Ai provider: ", AI_PROVIDER);
 
-const apiKey = args.apiKey || process.env.OPENAI_API_KEY;
+const apiKey = (args.apiKey || process.env.OPENAI_API_KEY || "") as string;
 const language = args.language || process.env.AI_COMMIT_LANGUAGE || "english";
 
 if (AI_PROVIDER === "openai" && !apiKey) {
@@ -23,20 +23,20 @@ if (AI_PROVIDER === "openai" && !apiKey) {
 const commitType = args["commit-type"];
 const provider = AI_PROVIDER === "ollama" ? ollama : openai;
 
-const makeCommit = (input) => {
+const makeCommit = (input: any) => {
   console.log("Committing Message... 🚀 ");
   execSync(`git commit -F -`, { input: input.trim() });
   console.log("Commit Successful! 🎉");
 };
 
-const getPromptForSingleCommit = (diff) => {
+const getPromptForSingleCommit = (diff: string) => {
   return provider.getPromptForSingleCommit(diff, {
     commitType,
     language,
   });
 };
 
-const generateSingleCommit = async (diff) => {
+const generateSingleCommit = async (diff: string) => {
   const prompt = getPromptForSingleCommit(diff);
   const finalCommitMessage = await provider.sendMessage(prompt, { apiKey, model: MODEL });
 
@@ -64,7 +64,7 @@ const generateSingleCommit = async (diff) => {
   makeCommit(finalCommitMessage);
 };
 
-const generateListCommits = async (diff, numOptions = 5) => {
+const generateListCommits = async (diff: string, numOptions: string | boolean = "5") => {
   const prompt = provider.getPromptForMultipleCommits(diff, {
     commitType,
     numOptions,
@@ -74,7 +74,7 @@ const generateListCommits = async (diff, numOptions = 5) => {
   const text = await provider.sendMessage(prompt, { apiKey, model: MODEL });
 
   // Split the generated options (separated by semicolons)
-  let msgs = text.split(";").map((msg) => msg.trim());
+  let msgs = text.split(";").map((msg: string) => msg.trim());
 
   // Add the regenerate option
   msgs.push(REGENERATE_MSG);

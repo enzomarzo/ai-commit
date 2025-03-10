@@ -1,6 +1,6 @@
 import { execSync } from "child_process";
 
-interface Args {
+export interface Args {
   [key: string]: string | boolean;
 }
 
