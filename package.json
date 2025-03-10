@@ -1,8 +1,8 @@
 {
   "name": "ai-commit",
-  "version": "2.2.0",
+  "version": "1.0.0",
   "type": "module",
-  "description": "✨ Make Github commits easier with ChatGPT, Gitmoji and Conventional Commits 🚀",
+  "description": "✨ Make Github commits easier with ChatGPT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,19 +16,8 @@
     "type": "git",
     "url": "git+https://github.com/insulineru/ai-commit.git"
   },
-  "keywords": [
-    "ai",
-    "chatgpt",
-    "commit",
-    "gitmoji",
-    "conventional",
-    "commits"
-  ],
   "author": "Insuline.ru <insuline.ru@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/insulineru/ai-commit/issues"
-  },
   "homepage": "https://github.com/insulineru/ai-commit#readme",
   "dependencies": {
     "chatgpt": "^5.0.0",
