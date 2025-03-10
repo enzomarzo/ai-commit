@@ -73,8 +73,8 @@ const generateListCommits = async (diff: string, numOptions: string | boolean = 
 
   const text = await provider.sendMessage(prompt, { apiKey, model: MODEL });
 
-  // Split the generated options (separated by semicolons)
-  let msgs = text.split(";").map((msg: string) => msg.trim());
+  // Split the generated options (separated by newlines)
+  let msgs = text.split("\n").map((msg: string) => msg.trim()).filter((msg: string) => msg);
 
   // Add the regenerate option
   msgs.push(REGENERATE_MSG);

@@ -56,8 +56,8 @@ const generateListCommits = async (diff, numOptions = "5") => {
         language,
     });
     const text = await provider.sendMessage(prompt, { apiKey, model: MODEL });
-    // Split the generated options (separated by semicolons)
-    let msgs = text.split(";").map((msg) => msg.trim());
+    // Split the generated options (separated by newlines)
+    let msgs = text.split("\n").map((msg) => msg.trim()).filter((msg) => msg);
     // Add the regenerate option
     msgs.push(REGENERATE_MSG);
     // Allow user to select one of the generated options
