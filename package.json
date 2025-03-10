@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "type": "module",
   "description": "✨ Make Github commits easier with ChatGPT",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish:major": "npm version major && npm publish --access public",
-    "ollama": "PROVIDER=ollama node index.js "
+    "ollama": "PROVIDER=ollama node index.ts "
   },
   "bin": {
-    "ai-commit": "./index.js"
+    "ai-commit": "./index.ts"
   },
   "repository": {
     "type": "git",
